@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/rute_project/static/css/main.d75205fb.chunk.css",
+    "main.js": "/rute_project/static/js/main.23818b0a.chunk.js",
+    "main.js.map": "/rute_project/static/js/main.23818b0a.chunk.js.map",
+    "runtime-main.js": "/rute_project/static/js/runtime-main.b6fe762b.js",
+    "runtime-main.js.map": "/rute_project/static/js/runtime-main.b6fe762b.js.map",
+    "static/js/2.16bc9173.chunk.js": "/rute_project/static/js/2.16bc9173.chunk.js",
+    "static/js/2.16bc9173.chunk.js.map": "/rute_project/static/js/2.16bc9173.chunk.js.map",
+    "static/js/3.415b63bf.chunk.js": "/rute_project/static/js/3.415b63bf.chunk.js",
+    "static/js/3.415b63bf.chunk.js.map": "/rute_project/static/js/3.415b63bf.chunk.js.map",
+    "index.html": "/rute_project/index.html",
+    "static/css/main.d75205fb.chunk.css.map": "/rute_project/static/css/main.d75205fb.chunk.css.map",
+    "static/js/2.16bc9173.chunk.js.LICENSE.txt": "/rute_project/static/js/2.16bc9173.chunk.js.LICENSE.txt",
+    "static/media/gb.ecd5e69b.png": "/rute_project/static/media/gb.ecd5e69b.png",
+    "static/media/main_video.61bba9ed.mp4": "/rute_project/static/media/main_video.61bba9ed.mp4",
+    "static/media/opening.c88f6be5.mp4": "/rute_project/static/media/opening.c88f6be5.mp4",
+    "static/media/tr.b4bdd7cd.png": "/rute_project/static/media/tr.b4bdd7cd.png",
+    "static/media/woman1.bdf8ceac.png": "/rute_project/static/media/woman1.bdf8ceac.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6fe762b.js",
+    "static/js/2.16bc9173.chunk.js",
+    "static/css/main.d75205fb.chunk.css",
+    "static/js/main.23818b0a.chunk.js"
+  ]
+}
