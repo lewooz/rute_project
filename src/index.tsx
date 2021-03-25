@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { StoreProvider } from './store_provider/store_provider';
+import { RootStore } from './stores/root_store/root_store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StoreProvider
+      store={new RootStore()}
+    >
+      <App />
+    </StoreProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
