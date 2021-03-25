@@ -18,7 +18,6 @@ top: 0;
 background-color: transparent;
 z-index: 2;
 transition: all 0.5s;
-box-shadow: box-shadow: rgb(0 0 0 / 0%) 0px 5px 10px 1px;
 :hover{
     background-color: ${AppColors.WHITE};
     box-shadow: rgb(0 0 0 / 40%) 0px 5px 10px 1px;
