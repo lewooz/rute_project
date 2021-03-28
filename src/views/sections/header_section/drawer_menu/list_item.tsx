@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Woman1 from "../../../../assets/png/woman1.png"
 import AppColors from "../../../../utils/color";
-import { Animated } from "react-animated-css"
+import { usePalette } from 'react-palette'
 import React, { FC } from "react";
 
-const ItemContainer = styled.div<{ width: string, height: string }>`
+const ItemContainer = styled.div<{ width: string, height: string, darkMuted: string, darkVibrant: string, lightMuted: string, lightVibrant: string, muted: string, vibrant: string }>`
 width: ${props => props.width ?? "250px"};
 height: ${props => props.height ?? "345px"};
 flex-shrink:0;
@@ -13,7 +13,9 @@ position: relative;
 display: flex;
 justify-content: center;
 align-items: center;
-background: linear-gradient(#fac66a 0%, #d6436c 44.99%, #9a529b 84.81%, #5b6cb2 100%);
+/* background: linear-gradient(#fac66a 0%, #d6436c 44.99%, #9a529b 84.81%, #5b6cb2 100%); */
+background:  linear-gradient(#fff 8%, ${props => props.lightVibrant} 23.31%, #fff 30.85%, #fff 42.85%, ${props => props.lightMuted} 50.23%, ${props => props.lightMuted} 55.23%,#fff 64%, #fff 92%);
+/* background:  linear-gradient(#fff 15%, ${props => props.lightMuted} 27.31%, #fff 38.85%, ${props => props.lightVibrant} 56.29%, ${props => props.lightVibrant} 63.61%, ${props => props.lightVibrant} 69.23%, #fff 100%); */
 cursor: pointer;
 :not(:first-child){
     margin-left: 10px;
@@ -80,9 +82,16 @@ interface ListItemProps {
 }
 
 const ListItem: FC<ListItemProps> = (props) => {
+    const { data, loading, error } = usePalette(Woman1)
 
     return (
         <ItemContainer
+            darkMuted={data.darkMuted}
+            darkVibrant={data.darkVibrant}
+            lightMuted={data.lightMuted}
+            lightVibrant={data.lightVibrant}
+            muted={data.muted}
+            vibrant={data.vibrant}
             width={props.width}
             height={props.height}
         >
