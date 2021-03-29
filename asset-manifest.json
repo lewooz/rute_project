@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rute_project/static/css/main.cd6e9931.chunk.css",
-    "main.js": "/rute_project/static/js/main.12c7b4fb.chunk.js",
-    "main.js.map": "/rute_project/static/js/main.12c7b4fb.chunk.js.map",
+    "main.js": "/rute_project/static/js/main.4a293a41.chunk.js",
+    "main.js.map": "/rute_project/static/js/main.4a293a41.chunk.js.map",
     "runtime-main.js": "/rute_project/static/js/runtime-main.8e7f9fa4.js",
     "runtime-main.js.map": "/rute_project/static/js/runtime-main.8e7f9fa4.js.map",
     "static/js/2.c27cf89c.chunk.js": "/rute_project/static/js/2.c27cf89c.chunk.js",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.8e7f9fa4.js",
     "static/js/2.c27cf89c.chunk.js",
     "static/css/main.cd6e9931.chunk.css",
-    "static/js/main.12c7b4fb.chunk.js"
+    "static/js/main.4a293a41.chunk.js"
   ]
 }
