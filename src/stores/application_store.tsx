@@ -1,28 +1,24 @@
 import { makeAutoObservable } from "mobx";
 import SelectedLanguage from "../enums/selected_language";
 import disableScroll from "../functions/disable_scroll";
+import UserModel from "../models/user_model";
 import { RootStore } from "./root_store/root_store";
 
-export default class HomeStore {
+export default class ApplicationStore {
 
     private rootStore: RootStore
 
-    isDrawerOpen: boolean = false
-    selectedLanguage: SelectedLanguage = SelectedLanguage.TR
+    applyingUser: UserModel = new UserModel()
 
     constructor(rootStore: RootStore) {
         this.rootStore = rootStore
         makeAutoObservable(this)
     }
 
-    toggleDrawer() {
-        this.isDrawerOpen = !this.isDrawerOpen
-        disableScroll(this.isDrawerOpen ? true : false)
+    editUserModel(key: string, value: any) {
+        this.applyingUser[key] = value
     }
 
-    setSelectedLanguage(language: SelectedLanguage) {
-        this.selectedLanguage = language
-    }
 
 
 }

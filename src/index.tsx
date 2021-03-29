@@ -5,13 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StoreProvider } from './store_provider/store_provider';
 import { RootStore } from './stores/root_store/root_store';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider
       store={new RootStore()}
     >
-      <App />
+      <Router>
+        <App />
+      </Router>
+
     </StoreProvider>
 
   </React.StrictMode>,
