@@ -27,7 +27,7 @@ const App = () => {
         <Route exact path="/">
           <HomePageMain />
         </Route>
-        <Route exact path="/application_form">
+        <Route path="/application_form">
           <ApplicationFormMain />
         </Route>
         <Route component={HomePageMain} />
