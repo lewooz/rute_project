@@ -24,12 +24,10 @@ const App = () => {
       <HeaderMain />
       <DrawerMenuMain />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/rute_project">
           <HomePageMain />
         </Route>
-        <Route path="/application_form">
-          <ApplicationFormMain />
-        </Route>
+        <Route exact path="/rute_project/application_form" component={ApplicationFormMain} />
         <Route component={HomePageMain} />
       </Switch>
 
