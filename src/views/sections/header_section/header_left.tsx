@@ -1,6 +1,7 @@
 import { observer } from "mobx-react-lite"
-import React from "react"
+import React, { useEffect } from "react"
 import { Animated } from "react-animated-css"
+import { useHistory, useLocation } from "react-router"
 import styled from "styled-components"
 import { useStores } from "../../../hooks/use_stores"
 import AppColors from "../../../utils/color"
@@ -24,9 +25,9 @@ cursor: pointer;
 }
 
 `
-const NavigationText = styled.div<{ marginLeft?: string }>`
+const NavigationText = styled.div<{ marginLeft?: string, color: string }>`
 font-size: 18px;
-color: ${AppColors.WHITE};
+color: ${props => props.color};
 font-family: var(--header-font);
 font-weight: 400;
 margin-left: ${props => props.marginLeft ?? "unset"};
@@ -48,10 +49,20 @@ margin-left: 50px;
 
 const HeaderLeft = observer(() => {
     const { homeStore } = useStores()
+    const [headerColor, setHeaderColor] = React.useState(AppColors.WHITE)
+    let history = useHistory()
+    let location = useLocation()
+
+    React.useEffect(() => {
+        setHeaderColor(location.pathname.includes("application_form") ? AppColors.GREY70 : AppColors.WHITE)
+    }, [location])
 
     const onMenuClick = () => {
-        console.log("GİRDİ!!")
         homeStore.toggleDrawer()
+    }
+
+    const goApplicationForm = () => {
+        history.push("application_form")
     }
 
     const renderMenuText = () => {
@@ -63,18 +74,19 @@ const HeaderLeft = observer(() => {
                     <StraightLine
                         length={"20px"}
                         width={"2px"}
-                        color={AppColors.WHITE}
+                        color={headerColor}
                     />
                     <StraightLine
                         length={"20px"}
                         width={"2px"}
-                        color={AppColors.WHITE}
+                        color={headerColor}
                         hoverColor={AppColors.SUCCESS}
                         margin={"5px 0 0 0"}
                     />
                 </HamburgerIconContainer>
                 <NavigationText
                     marginLeft={"7px"}
+                    color={headerColor}
                 >
                     Menü
                 </NavigationText>
@@ -89,12 +101,16 @@ const HeaderLeft = observer(() => {
             </Animated>
             <LeftMenuOptions>
                 <Animated animationIn="fadeInLeft" animationOut={"fadeOut"} animationInDuration={500} animationInDelay={4800} isVisible={true} animateOnMount={true}>
-                    <NavigationText>
-                        Opsiyon 1
-                </NavigationText>
+                    <NavigationText
+                        color={headerColor}
+                        onClick={goApplicationForm}
+                    >
+                        Başvuru Formu
+                    </NavigationText>
                 </Animated>
                 <Animated animationIn="fadeInLeft" animationOut={"fadeOut"} animationInDuration={500} animationInDelay={5100} isVisible={true} animateOnMount={true}>
                     <NavigationText
+                        color={headerColor}
                         marginLeft={"20px"}
                     >
                         Opsiyon 2
@@ -102,6 +118,7 @@ const HeaderLeft = observer(() => {
                 </Animated>
                 <Animated animationIn="fadeInLeft" animationOut={"fadeOut"} animationInDuration={500} animationInDelay={5400} isVisible={true} animateOnMount={true}>
                     <NavigationText
+                        color={headerColor}
                         marginLeft={"20px"}
                     >
                         Opsiyon 3

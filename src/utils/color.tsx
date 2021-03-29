@@ -1,5 +1,6 @@
 const AppColors = {
     GREY_BG: "#212121",
+    WHITE_BG: "#F7F6FB",
 
     GOLD: "#a37c2c",
 

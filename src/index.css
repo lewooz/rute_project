@@ -4,10 +4,10 @@
   border:0;
   font:inherit;
   box-sizing: border-box;
-  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;;
   position: relative;
 
-  --primary-font: 'Quattrocento Sans', sans-serif;
+  --primary-font: 'Open Sans', sans-serif;
   --header-font: 'DM Sans', sans-serif;
 
   --text-letter-spacing: 0.1em;
