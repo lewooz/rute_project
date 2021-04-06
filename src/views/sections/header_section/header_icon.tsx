@@ -63,11 +63,9 @@ interface HeaderIconProps {
 
 const HeaderIcon: FC<HeaderIconProps> = (props) => {
     let location = useLocation()
-    const [headerColor, setHeaderColor] = React.useState(AppColors.WHITE)
 
-    React.useEffect(() => {
-        setHeaderColor(location.pathname.includes("application_form") ? AppColors.GREY70 : AppColors.WHITE)
-    }, [location])
+
+
 
     const renderIcon = () => {
         switch (props.iconType) {
@@ -76,7 +74,6 @@ const HeaderIcon: FC<HeaderIconProps> = (props) => {
                     <StyledTwitter
                         className={"svgLogo"}
                         size={18}
-                        color={headerColor}
                     />
                 )
             case SocialIcon.Facebook:
@@ -84,7 +81,6 @@ const HeaderIcon: FC<HeaderIconProps> = (props) => {
                     <StyledFacebook
                         className={"svgLogo"}
                         size={18}
-                        color={headerColor}
                     />
                 )
             case SocialIcon.Instagram:
@@ -92,7 +88,6 @@ const HeaderIcon: FC<HeaderIconProps> = (props) => {
                     <StyledInstagram
                         className={"svgLogo"}
                         size={18}
-                        color={headerColor}
                     />
                 )
             case SocialIcon.Linkedin:
@@ -100,7 +95,6 @@ const HeaderIcon: FC<HeaderIconProps> = (props) => {
                     <StyledLinkedin
                         className={"svgLogo"}
                         size={18}
-                        color={headerColor}
                     />
                 )
             case SocialIcon.Pinterest:
@@ -108,7 +102,6 @@ const HeaderIcon: FC<HeaderIconProps> = (props) => {
                     <StyledPinterest
                         className={"svgLogo"}
                         size={18}
-                        color={headerColor}
                     />
                 )
             case SocialIcon.Mail:
@@ -116,7 +109,6 @@ const HeaderIcon: FC<HeaderIconProps> = (props) => {
                     <StyledMail
                         className={"svgLogo"}
                         size={18}
-                        color={headerColor}
                     />
                 )
 

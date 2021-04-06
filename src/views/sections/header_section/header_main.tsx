@@ -17,6 +17,7 @@ top: 0;
 background-color: transparent;
 z-index: 2;
 transition: all 0.5s;
+padding: 0 5.09vw;
 :hover{
     background-color: ${AppColors.WHITE};
     box-shadow: rgb(0 0 0 / 40%) 0px 5px 10px 1px;
@@ -40,8 +41,8 @@ const HeaderMain = observer(() => {
         <MainDiv
             isDrawerOpen={homeStore.isDrawerOpen}
         >
-            <HeaderLeft />
             <OpeningVideoContainer />
+            <HeaderLeft />
             <HeaderRight />
         </MainDiv>
     )

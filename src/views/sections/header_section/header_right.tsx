@@ -13,7 +13,6 @@ padding-bottom: 10px;
 const SocialIconsRow = styled.div`
 display: flex;
 align-items: center;
-margin-right: 5.09vw;
 `
 
 
