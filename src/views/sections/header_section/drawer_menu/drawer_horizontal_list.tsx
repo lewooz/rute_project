@@ -2,7 +2,6 @@ import styled from "styled-components"
 import AppColors from "../../../../utils/color"
 import { GoArrowBoth } from "react-icons/go";
 import Scrollbars from "react-custom-scrollbars-2";
-import Woman1 from "../../../../assets/png/woman1.png"
 import ListItem from "./list_item";
 
 const MainDiv = styled.div`

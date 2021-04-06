@@ -12,6 +12,7 @@ position: ${props => props.position};
 top: ${props => props.top};
 left: ${props => props.left};
 margin: ${props => props.margin ?? 0};
+flex: ${props => props.flex};
 transition: all 0.3s;
 :hover{
     border-color: ${props => props.hoverColor};
@@ -19,17 +20,19 @@ transition: all 0.3s;
 `
 
 interface LineProps {
-    length: string
     color: string
+    length?: string
     alignSelf?: string
     isHorizontal?: boolean
     opacity?: number
+    flex?: string
     position?: string
     top?: string
     left?: string
     margin?: string
     width?: string
     hoverColor?: string
+
 }
 
 const StraightLine: FC<LineProps> = (props) => {
@@ -46,7 +49,8 @@ const StraightLine: FC<LineProps> = (props) => {
             margin={props.margin}
             alignSelf={props.alignSelf ?? "center"}
             width={props.width ?? "1px"}
-            hoverColor={props.hoverColor ?? "unset"}
+            hoverColor={props.hoverColor ?? props.color}
+            flex={props.flex ?? "unset"}
         />
     )
 }

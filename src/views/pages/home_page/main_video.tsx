@@ -26,12 +26,16 @@ const arrowAnim = keyframes`
 const VideoContainer = styled.div`
 position: relative;
 `
-const StyledVideo = styled.video`
+const StyledVideo = styled.video<{ openingVideoPlayed: boolean }>`
 width: 100%;
 height: 100vh;
 object-fit: cover;
 opacity: 0;
 animation: 0.5s ${mainVideoAnim} ease-out 4500ms forwards;
+${props => props.openingVideoPlayed && css`
+animation: none;
+opacity: 1;
+`}
 `
 const CurtainDiv = styled.div<{ isDrawerOpen: boolean }>`
 position: absolute;
@@ -94,6 +98,7 @@ const MainVideo = observer(() => {
                 muted
                 playsInline
                 preload="auto"
+                openingVideoPlayed={homeStore.openingVideoAnimationPlayed}
             />
             <CurtainDiv
                 isDrawerOpen={homeStore.isDrawerOpen}

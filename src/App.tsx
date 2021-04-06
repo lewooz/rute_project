@@ -9,7 +9,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import React from 'react';
-import ApplicationFormMain from './views/pages/application_form/application_form_main';
+import ApplicationFormPage from './views/pages/application_form/application_form_page';
 
 const MainDiv = styled.div`
 background-color: white;
@@ -24,13 +24,12 @@ const App = () => {
       <HeaderMain />
       <DrawerMenuMain />
       <Switch>
-        <Route exact path="/rute_project">
+        <Route exact path="/">
           <HomePageMain />
         </Route>
-        <Route exact path="/rute_project/application_form" component={ApplicationFormMain} />
+        <Route exact path="/application_form" component={ApplicationFormPage} />
         <Route component={HomePageMain} />
       </Switch>
-
     </MainDiv>
   );
 }

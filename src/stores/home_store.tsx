@@ -8,6 +8,7 @@ export default class HomeStore {
     private rootStore: RootStore
 
     isDrawerOpen: boolean = false
+    openingVideoAnimationPlayed: boolean = false
     selectedLanguage: SelectedLanguage = SelectedLanguage.TR
 
     constructor(rootStore: RootStore) {
@@ -22,6 +23,11 @@ export default class HomeStore {
 
     setSelectedLanguage(language: SelectedLanguage) {
         this.selectedLanguage = language
+    }
+    setOpeningAnimationVideoPlayStatus(status: boolean) {
+        setTimeout(() => {
+            this.openingVideoAnimationPlayed = status;
+        }, 6000);
     }
 
 

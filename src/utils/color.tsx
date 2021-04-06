@@ -2,6 +2,10 @@ const AppColors = {
     GREY_BG: "#212121",
     WHITE_BG: "#F7F6FB",
 
+    DARK_PURPLE: "#4E1E35",
+    LIGHT_PURPLE: "#6F2A66",
+    PURPLE_GRADIENT: "linear-gradient(#4e1e35 0%, #6f2a66 100%)",
+
     GOLD: "#a37c2c",
 
     GREY05: "#E8E8E8",

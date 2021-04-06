@@ -1,12 +1,12 @@
-import ApplicationStore from "../application_store"
+import ApplicationFormStore from "../application_form_store"
 import HomeStore from "../home_store"
 
 export class RootStore {
     homeStore: HomeStore
-    applicationStore: ApplicationStore
+    applicationFormStore: ApplicationFormStore
 
     constructor() {
         this.homeStore = new HomeStore(this)
-        this.applicationStore = new ApplicationStore(this)
+        this.applicationFormStore = new ApplicationFormStore(this)
     }
 }
