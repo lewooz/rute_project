@@ -5,7 +5,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import AppColors from "../../../utils/color";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../hooks/use_stores";
-import { useEffect } from "react";
 
 const initialVideoAnim = keyframes`
   to {
@@ -56,10 +55,6 @@ const OpeningVideoContainer = observer(() => {
   let history = useHistory()
   const { homeStore } = useStores()
 
-  useEffect(() => {
-    homeStore.setOpeningAnimationVideoPlayStatus(true)
-  }, [])
-
   const onMenuClick = () => {
     homeStore.toggleDrawer()
   }
@@ -78,6 +73,7 @@ const OpeningVideoContainer = observer(() => {
         loop={false}
         isMainPage={(location.pathname === "/" || location.pathname === "/rute_project") ? true : false}
         isAlreadyPlayed={homeStore.openingVideoAnimationPlayed}
+        onEnded={() => homeStore.setOpeningAnimationVideoPlayStatus(true)}
       />
       <HamburgerMenu
         color={AppColors.WHITE}

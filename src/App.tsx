@@ -5,10 +5,7 @@ import HeaderMain from './views/sections/header_section/header_main';
 import {
   Switch,
   Route,
-  Redirect,
-  useLocation,
 } from "react-router-dom";
-import React from 'react';
 import ApplicationFormPage from './views/pages/application_form/application_form_page';
 
 const MainDiv = styled.div`
@@ -19,6 +16,7 @@ overflow: hidden;
 `
 
 const App = () => {
+
   return (
     <MainDiv>
       <HeaderMain />

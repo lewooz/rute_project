@@ -25,9 +25,7 @@ export default class HomeStore {
         this.selectedLanguage = language
     }
     setOpeningAnimationVideoPlayStatus(status: boolean) {
-        setTimeout(() => {
-            this.openingVideoAnimationPlayed = status;
-        }, 6000);
+        this.openingVideoAnimationPlayed = status;
     }
 
 
