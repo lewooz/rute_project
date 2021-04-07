@@ -30,9 +30,6 @@ const HeaderLeft = observer(() => {
     const { homeStore } = useStores()
     let history = useHistory()
 
-    const onMenuClick = () => {
-        homeStore.toggleDrawer()
-    }
 
     const goApplicationForm = () => {
         history.push("/application_form")

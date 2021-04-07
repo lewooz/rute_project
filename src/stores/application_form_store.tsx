@@ -126,6 +126,7 @@ export default class ApplicationFormStore {
         this.editQuestionsModel("profilePhoto", downloadURL)
     }
     setContestIds() {
+        this.applyingUser.contestIds = []
         this.applyingUser.questionsInfo.contests.forEach(contest => {
             var contestCode = contest.split(" ").pop()
             this.applyingUser.contestIds.push(`${contestCode[0]}-${this.applyingUser.id}`)

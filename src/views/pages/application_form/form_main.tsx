@@ -1,17 +1,17 @@
 import { observer } from "mobx-react-lite"
+
 import styled from "styled-components"
 import FormSteps from "../../../enums/form_steps"
-import LottieTypes from "../../../enums/lottie_types"
+
 import { useStores } from "../../../hooks/use_stores"
 import AppColors from "../../../utils/color"
 import media from "../../../utils/custom_media"
-import LottiePlayer from "../../components/lottie_player"
-import ProgressIndicator from "../../components/progress_indicator"
-import SizedBox from "../../components/sizedbox"
+
 import FormStepper from "./form_stepper"
 import GeneralInformationForm from "./general_information_form"
 import PersonalInformationForm from "./personal_information_form"
 import QuestionsForm from "./questions_form"
+import AfterSubmitForm from "./after_submit_form"
 
 const MainDiv = styled.div`
 max-width: 980px;
@@ -46,10 +46,6 @@ ${media.phone}{
     padding: 30px 0 30px 0;
 }
 `
-const InfoText = styled.div`
-font: ${props => props.theme.h6};
-color: ${AppColors.WHITE};
-`
 
 const FormMain = observer(() => {
     const { applicationFormStore } = useStores()
@@ -73,39 +69,6 @@ const FormMain = observer(() => {
         }
     }
 
-    const renderAfterFormSubmit = () => {
-        return (
-            ///Kullanıcı resetlendiyse network işlemi bitmiştir.
-            applicationFormStore.applyingUser.contestIds.length === 0 ?
-                <>
-                    <LottiePlayer
-                        lottieType={LottieTypes.SUCCESS}
-                        width={300}
-                        height={300}
-                    />
-                    <SizedBox
-                        height="20px"
-                    />
-                    <InfoText>
-                        Başvurunuz bize ulaşmıştır. Teşekkür Ederiz.
-                    </InfoText>
-                </>
-                :
-                <>
-                    <ProgressIndicator
-                        color={AppColors.WHITE}
-                        size={300}
-                    />
-                    <SizedBox
-                        height="40px"
-                    />
-                    <InfoText>
-                        Başvurunuz Bize Ulaştırılıyor...
-                    </InfoText>
-                </>
-
-        )
-    }
 
     return (
         <MainDiv>
@@ -119,7 +82,7 @@ const FormMain = observer(() => {
             <FormContainer>
                 {
                     applicationFormStore.formSubmitted ?
-                        renderAfterFormSubmit()
+                        <AfterSubmitForm />
                         :
                         <>
                             <FormStepper />
