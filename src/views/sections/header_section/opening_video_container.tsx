@@ -63,10 +63,6 @@ const OpeningVideoContainer = observer(() => {
     history.replace("/")
   }
 
-  useEffect(() => {
-    console.log(location.pathname)
-  }, [])
-
   return (
     <RelativeDiv>
       <OpeningVideo
@@ -76,7 +72,7 @@ const OpeningVideoContainer = observer(() => {
         muted
         playsInline
         loop={false}
-        isMainPage={(location.pathname === "/" || location.pathname === "/rute_project") ? true : false}
+        isMainPage={(location.pathname === "/" || location.pathname === "/rute_project" || location.pathname === "/rute_project/") ? true : false}
         isAlreadyPlayed={homeStore.openingVideoAnimationPlayed}
         onEnded={() => homeStore.setOpeningAnimationVideoPlayStatus(true)}
       />
