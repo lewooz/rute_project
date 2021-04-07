@@ -11,6 +11,7 @@ const initialVideoAnim = keyframes`
   to {
     transform: translate(0px,0px) scale(1);
     margin:0;
+    pointer-events:visible;
   }
 `
 const hamburgerMenuAnim = keyframes`
@@ -30,11 +31,13 @@ transform: translate(calc(45vw - 100px),calc(50vh - 40px)) scale(5);
 object-fit: cover;
 position: relative;
 z-index:1;
+pointer-events:none;
 ${props => props.isMainPage && css`
 animation: 0.5s ${initialVideoAnim} ease-out 4500ms forwards;
 `}
 ${props => (!props.isMainPage || props.isAlreadyPlayed) && css`
 transform: translate(0px,0px) scale(1);
+pointer-events:visible;
 `}
 `
 const HamburgerMenu = styled(GiHamburgerMenu)`

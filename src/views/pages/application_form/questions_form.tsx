@@ -215,7 +215,7 @@ const QuestionsForm = observer(() => {
             <NeumorphicButton
                 text="KAYIT OL"
                 disabled={!applicationFormStore.isQuestionsValid}
-                onPressed={() => applicationFormStore.setContestIds()}
+                onPressed={() => applicationFormStore.sendApplication()}
             />
         </>
     )
