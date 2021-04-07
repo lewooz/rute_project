@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import AppColors from "../../../utils/color";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../hooks/use_stores";
+import { useEffect } from "react";
 
 const initialVideoAnim = keyframes`
   to {
@@ -61,6 +62,10 @@ const OpeningVideoContainer = observer(() => {
   const goHome = () => {
     history.replace("/")
   }
+
+  useEffect(() => {
+    console.log(location.pathname)
+  }, [])
 
   return (
     <RelativeDiv>
