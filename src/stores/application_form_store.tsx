@@ -1,4 +1,4 @@
-import { makeAutoObservable, reaction, toJS } from "mobx";
+import { makeAutoObservable } from "mobx";
 import FormSteps from "../enums/form_steps";
 import FieldStatus from "../enums/field_status";
 import UserGeneralInfoStatus from "../models/user/general_info_status";
