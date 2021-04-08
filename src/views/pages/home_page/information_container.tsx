@@ -1,4 +1,6 @@
-import styled from "styled-components"
+import { useRef } from "react"
+import styled, { css } from "styled-components"
+import useOnScreen from "../../../hooks/use_on_screen"
 import AppColors from "../../../utils/color"
 import SizedBox from "../../components/sizedbox"
 
@@ -10,10 +12,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 `
-const CenterDiv = styled.div`
+const CenterDiv = styled.div<{ onScreen: boolean }>`
 max-width: 70%;
 display: flex;
 flex-direction: column;
+transform: skewY(6deg);
+transform-origin: left;
+transition: transform 0.5s ease-in;
+${props => props.onScreen && css`
+transform: skewY(0deg);
+`}
 `
 const HeaderText = styled.text`
 letter-spacing: 0.1em;
@@ -63,9 +71,15 @@ cursor: pointer;
 `
 
 const InformationContainer = () => {
+    const infoRef = useRef(null)
+    const onScreen = useOnScreen(infoRef, "30px")
+
     return (
         <MainDiv>
-            <CenterDiv>
+            <CenterDiv
+                ref={infoRef}
+                onScreen={onScreen}
+            >
                 <HeaderText>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit
                 </HeaderText>
