@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import AppColors from "../../../utils/color";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../hooks/use_stores";
-import { useEffect } from "react";
+import media from "../../../utils/custom_media";
 
 const initialVideoAnim = keyframes`
   to {
@@ -32,6 +32,14 @@ object-fit: cover;
 position: relative;
 z-index:1;
 pointer-events:none;
+${media.phone}{
+  width: 150px;
+  transform: translate(calc(50vw - 75px),calc(50vh - 40px)) scale(5);
+${props => (!props.isMainPage || props.isAlreadyPlayed) && css`
+transform: translate(0px,0px) scale(1);
+pointer-events:visible;
+`}
+}
 ${props => props.isMainPage && css`
 animation: 0.5s ${initialVideoAnim} ease-out 4500ms forwards;
 `}
@@ -46,7 +54,7 @@ bottom:5px;
 left:5px;
 z-index:5;
 opacity:0;
-pointer-events:none;
+/* pointer-events:none; */
 animation: 0.5s ${hamburgerMenuAnim} ease-out 5000ms forwards;
 cursor:pointer;
 `
@@ -79,7 +87,7 @@ const OpeningVideoContainer = observer(() => {
       <HamburgerMenu
         color={AppColors.WHITE}
         size={25}
-        onClick={onMenuClick}
+        onClick={() => onMenuClick()}
       />
     </RelativeDiv>
 

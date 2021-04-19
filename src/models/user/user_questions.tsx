@@ -1,7 +1,8 @@
 import { makeAutoObservable } from "mobx"
+import ContestModel from "../contest_model"
 
 export default class UserQuestionsModel {
-    contests: Array<string>
+    contests: Array<ContestModel>
     joinedAnotherContestBefore: boolean
     didModelingBefore: boolean
     connectedToAnAgent: boolean
@@ -9,7 +10,7 @@ export default class UserQuestionsModel {
     isTermsAggreed: boolean
 
     constructor(
-        contests: Array<string> = [],
+        contests: Array<ContestModel> = [],
         joinedAnotherContestBefore: boolean = false,
         didModelingBefore: boolean = false,
         connectedToAnAgent: boolean = false,

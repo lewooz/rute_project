@@ -33,9 +33,7 @@ ReactDOM.render(
           <App />
         </ThemeProvider>
       </Router>
-
     </StoreProvider>
-
   </React.StrictMode>,
   document.getElementById('root')
 );

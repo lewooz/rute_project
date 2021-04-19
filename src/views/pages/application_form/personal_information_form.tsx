@@ -119,6 +119,7 @@ const PersonalInformationForm = observer(() => {
         return (
             <FormRow>
                 <CustomDropdown
+                    width={"40%"}
                     title={"Saç Rengi *"}
                     placeholder={"Renk Seçiniz"}
                     options={ApplicationArrays.HAIR_COLOR_ARRAY}
@@ -150,6 +151,7 @@ const PersonalInformationForm = observer(() => {
         return (
             <FormRow>
                 <CustomDropdown
+                    width={"40%"}
                     title={"Göz Rengi *"}
                     placeholder={"Renk Seçiniz"}
                     options={ApplicationArrays.EYE_COLOR_ARRAY}

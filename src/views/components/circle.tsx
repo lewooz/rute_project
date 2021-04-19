@@ -1,6 +1,7 @@
 import { FC } from "react"
 import styled from "styled-components"
 import AppColors from "../../utils/color"
+import media from "../../utils/custom_media"
 
 const MainDiv = styled.div<CircleProps>`
 display: flex;
@@ -22,6 +23,9 @@ cursor:${props => props.cursor};
     color:${props => props.titleColor};
     display:${props => props.title.length > 0 ? "flex" : "none"};
     white-space: nowrap;
+    ${media.phone}{
+        font:${props => props.theme.subtitle2};
+    }
 }
 `
 interface CircleProps {

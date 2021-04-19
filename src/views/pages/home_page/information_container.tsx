@@ -2,6 +2,7 @@ import { useRef } from "react"
 import styled, { css } from "styled-components"
 import useOnScreen from "../../../hooks/use_on_screen"
 import AppColors from "../../../utils/color"
+import media from "../../../utils/custom_media"
 import SizedBox from "../../components/sizedbox"
 
 const MainDiv = styled.div`
@@ -22,6 +23,9 @@ transition: transform 0.5s ease-in;
 ${props => props.onScreen && css`
 transform: skewY(0deg);
 `}
+${media.phone}{
+   max-width: 95%;
+}
 `
 const HeaderText = styled.text`
 letter-spacing: 0.1em;
@@ -32,6 +36,9 @@ background: linear-gradient(#fac66a 0%, #d6436c 29.9%, #9a529b 72.99%, #5b6cb2 1
 -webkit-text-fill-color: transparent;
 font-family: var(--header-font);
 font-weight: 700;
+${media.phone}{
+   font-size: 2rem;
+}
 `
 const ContentText = styled.text`
 font-weight: 400;
@@ -72,7 +79,7 @@ cursor: pointer;
 
 const InformationContainer = () => {
     const infoRef = useRef(null)
-    const onScreen = useOnScreen(infoRef, "30px")
+    const onScreen = useOnScreen(infoRef, false, "30px")
 
     return (
         <MainDiv>

@@ -4,6 +4,7 @@ import { useStores } from "../../../hooks/use_stores"
 import AppColors from "../../../utils/color"
 import { MdKeyboardArrowDown } from "react-icons/md";
 import VideoFile from "../../../assets/mp4/main_video.mp4"
+import media from "../../../utils/custom_media";
 
 const mainVideoAnim = keyframes`
   0% {
@@ -37,7 +38,7 @@ animation: none;
 opacity: 1;
 `}
 `
-const CurtainDiv = styled.div<{ isDrawerOpen: boolean }>`
+const CurtainDiv = styled.div<{ hasHigherOpacity: boolean }>`
 position: absolute;
 top: 0;
 right: 0;
@@ -49,7 +50,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 transition: all 0.5s;
-${props => props.isDrawerOpen && css`
+${props => props.hasHigherOpacity && css`
 background-color: rgba(0,0,0,0.8);
 `}
 `
@@ -64,6 +65,10 @@ font-weight: 700;
 color: ${AppColors.WHITE};
 font-family: var(--header-font);
 letter-spacing: var(--text-letter-spacing);
+text-align: center;
+${media.phone}{
+  font-size: 2.75rem;
+}
 `
 const HelperSlogan = styled.text`
 font-size: 1.25rem;
@@ -72,6 +77,10 @@ color: ${AppColors.WHITE};
 font-family: var(--header-font);
 letter-spacing: 0.25em;
 margin-top: 20px;
+text-align: center;
+${media.phone}{
+  font-size: 1rem;
+}
 `
 const StyledArrowIcon = styled(MdKeyboardArrowDown) <{ isDrawerOpen: boolean }>`
 position: absolute;
@@ -101,7 +110,7 @@ const MainVideo = observer(() => {
                 openingVideoPlayed={homeStore.openingVideoAnimationPlayed}
             />
             <CurtainDiv
-                isDrawerOpen={homeStore.isDrawerOpen}
+                hasHigherOpacity={(homeStore.isDrawerOpen || homeStore.isSocialLinksOpen)}
             >
                 <SloganContainer>
                     <MainSlogan>

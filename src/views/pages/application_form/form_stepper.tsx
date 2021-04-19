@@ -6,9 +6,10 @@ import AppColors from "../../../utils/color"
 import Circle from "../../components/circle"
 import StraightLine from "../../components/straight_line"
 import { FaCheck } from "react-icons/fa";
+import media from "../../../utils/custom_media"
 
 const MainDiv = styled.div`
-width: 100%;
+width: 84%;
 display: flex;
 align-items: center;
 `
@@ -20,6 +21,9 @@ justify-content: center;
 align-items: center;
 font:${props => props.theme.body1};
 color:${props => props.color};
+${media.phone}{
+  font:${props => props.theme.body2};
+}
 `
 
 const FormStepper = observer(() => {

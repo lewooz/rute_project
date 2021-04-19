@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useState } from "react";
 
-function useOnScreen(ref: MutableRefObject<any>, rootMargin = "0px") {
+function useOnScreen(ref: MutableRefObject<any>, triggerUnobserve = true, rootMargin = "0px") {
 
     const [isIntersecting, setIntersecting] = useState(false);
     useEffect(() => {
@@ -15,9 +15,11 @@ function useOnScreen(ref: MutableRefObject<any>, rootMargin = "0px") {
         if (ref.current) {
             observer.observe(ref.current);
         }
-        return () => {
-            observer.unobserve(ref.current);
-        };
+        if (triggerUnobserve) {
+            return () => {
+                observer.unobserve(ref.current);
+            };
+        }
     }, []);
     return isIntersecting;
 }

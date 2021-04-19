@@ -8,6 +8,8 @@ import { IoMdClose } from "react-icons/io";
 import DrawerHorizontalList from "./drawer_horizontal_list"
 import { BiWorld } from "react-icons/bi";
 import LanguageSelectSwitch from "./language_select_switch"
+import media from "../../../../utils/custom_media"
+import { useHistory } from "react-router"
 
 const MainDiv = styled.div<{ isDrawerOpen: boolean }>`
 position: fixed;
@@ -28,12 +30,15 @@ visibility: visible;
 opacity: 1;
 transform: translate(0,0);
 `}
+${media.phone}{
+    width:90vw;
+}
 `
 const TopRow = styled.div`
 display: flex;
 height: 70px;
 align-items: flex-end;
-padding-left: 96px;
+padding-left: 7.5vw;
 `
 const StyledCloseIcon = styled(IoMdClose)`
 color: ${AppColors.WHITE};
@@ -68,7 +73,7 @@ overflow: hidden scroll;
 `
 const MenuOptionsContainer = styled.div`
 width: 650px;
-margin: 45px 150px 0 150px;
+margin: 45px 7.5vw 0 7.5vw;
 padding-bottom: 30px;
 border-bottom: 1px solid rgba(255,255,255,0.1);
 display: flex;
@@ -91,7 +96,7 @@ const BottomRow = styled.div`
 display: flex;
 align-items: center;
 height: 80px;
-padding-left: 150px;
+padding-left: 7.5vw;
 `
 const LanguageText = styled.text`
 font-size: 1rem;
@@ -120,9 +125,15 @@ cursor: pointer;
 
 const DrawerMenuMain = observer(() => {
     const { homeStore } = useStores()
+    let history = useHistory()
 
     const onCloseClick = () => {
         homeStore.toggleDrawer()
+    }
+
+    const goApplicationForm = () => {
+        history.push("/application_form")
+        onCloseClick()
     }
 
     return (
@@ -178,8 +189,10 @@ const DrawerMenuMain = observer(() => {
             <ContentContainer>
                 <DrawerHorizontalList />
                 <MenuOptionsContainer>
-                    <MenuOptionText>
-                        Option 1
+                    <MenuOptionText
+                        onClick={goApplicationForm}
+                    >
+                        Başvuru Formu
                 </MenuOptionText>
                     <MenuOptionText>
                         Option 2

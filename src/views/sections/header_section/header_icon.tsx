@@ -9,8 +9,8 @@ import { FaPinterestP } from "react-icons/fa";
 import { GoMail } from "react-icons/go";
 import { FC } from "react";
 import SocialIcon from "../../../enums/social_icon";
-import { useHistory, useLocation } from "react-router";
-import React from "react";
+import { useLocation } from "react-router";
+
 
 const MainDiv = styled.div`
 height: 40px;
@@ -62,10 +62,6 @@ interface HeaderIconProps {
 }
 
 const HeaderIcon: FC<HeaderIconProps> = (props) => {
-    let location = useLocation()
-
-
-
 
     const renderIcon = () => {
         switch (props.iconType) {

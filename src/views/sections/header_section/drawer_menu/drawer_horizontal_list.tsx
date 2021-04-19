@@ -5,7 +5,7 @@ import Scrollbars from "react-custom-scrollbars-2";
 import ListItem from "./list_item";
 
 const MainDiv = styled.div`
-padding-left: 150px;
+padding-left: 7.5vw;
 width: 100%;
 margin-top: 50px;
 display: flex;
@@ -92,6 +92,7 @@ const DrawerHorizontalList = () => {
                 renderThumbHorizontal={renderThumbHorizontal}
                 renderTrackHorizontal={renderTrackHorizontal}
                 thumbSize={50}
+
             >
                 <MainDiv>
                     {

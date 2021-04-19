@@ -6,6 +6,7 @@ import useCountries from "../../../hooks/use_countries"
 import { useStores } from "../../../hooks/use_stores"
 import ApplicationArrays from "../../../utils/application_arrays"
 import AppColors from "../../../utils/color"
+import media from "../../../utils/custom_media"
 import CustomDropdown from "../../components/custom_dropdown"
 import CustomTextfield from "../../components/custom_textfield"
 import NeumorphicButton from "../../components/neumorphic_button"
@@ -22,6 +23,9 @@ const InputColumn = styled.div`
 width: 48%;
 display: flex;
 flex-direction: column;
+${media.phone}{
+    width: 100%;
+}
 `
 const BirthDateRow = styled.div`
 display: flex;
@@ -32,6 +36,9 @@ margin-top: 10px;
 const InputTitle = styled.text`
 font:${props => props.theme.subtitle1};
 color:${AppColors.WHITE};
+${media.phone}{
+    font:${props => props.theme.subtitle2};
+}
 `
 const GeneralInformationForm = observer(() => {
     const { applicationFormStore } = useStores()

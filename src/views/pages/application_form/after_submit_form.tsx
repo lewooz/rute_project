@@ -8,6 +8,7 @@ import styled from "styled-components"
 import AppColors from "../../../utils/color"
 import ProgressIndicator from "../../components/progress_indicator"
 import NeumorphicButton from "../../components/neumorphic_button"
+import { useHistory } from "react-router"
 
 const InfoText = styled.div`
 font: ${props => props.theme.h6};
@@ -22,6 +23,12 @@ margin-top: 40px;
 
 const AfterSubmitForm = observer(() => {
     const { applicationFormStore } = useStores()
+    let history = useHistory()
+
+    const goToCheckout = () => {
+        history.push("/checkout")
+        applicationFormStore.setFormSubmitStatus(false)
+    }
 
     return (
         ///Kullanıcı resetlendiyse network işlemi bitmiştir.
@@ -48,7 +55,7 @@ const AfterSubmitForm = observer(() => {
                     />
                     <NeumorphicButton
                         text="Ödemeye İlerle"
-                        onPressed={() => { }}
+                        onPressed={() => goToCheckout()}
                     />
                 </ButtonsRow>
             </>

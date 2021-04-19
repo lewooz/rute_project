@@ -1,11 +1,10 @@
 import { observer } from "mobx-react-lite"
-import React, { useEffect } from "react"
 import { Animated } from "react-animated-css"
-import { useHistory, useLocation } from "react-router"
+import { useHistory } from "react-router"
 import styled from "styled-components"
 import { useStores } from "../../../hooks/use_stores"
 import AppColors from "../../../utils/color"
-import StraightLine from "../../components/straight_line"
+import media from "../../../utils/custom_media"
 
 const MainDiv = styled.div`
 flex: 1;
@@ -13,6 +12,9 @@ display: flex;
 align-items: flex-end;
 padding-bottom: 10px;
 margin-left: 50px;
+${media.phone}{
+    display: none;
+}
 `
 const NavigationText = styled.div<{ marginLeft?: string, color: string }>`
 font:${props => props.theme.subtitle1};
@@ -34,7 +36,6 @@ const HeaderLeft = observer(() => {
     const goApplicationForm = () => {
         history.push("/application_form")
     }
-
 
 
     return (
