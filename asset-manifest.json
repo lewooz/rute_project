@@ -1,27 +1,28 @@
 {
   "files": {
     "main.css": "/rute_project/static/css/main.6593edc8.chunk.css",
-    "main.js": "/rute_project/static/js/main.0f9373bc.chunk.js",
-    "main.js.map": "/rute_project/static/js/main.0f9373bc.chunk.js.map",
-    "runtime-main.js": "/rute_project/static/js/runtime-main.b1b3ae12.js",
-    "runtime-main.js.map": "/rute_project/static/js/runtime-main.b1b3ae12.js.map",
-    "static/js/2.405c2fff.chunk.js": "/rute_project/static/js/2.405c2fff.chunk.js",
-    "static/js/2.405c2fff.chunk.js.map": "/rute_project/static/js/2.405c2fff.chunk.js.map",
-    "static/js/3.e63dd962.chunk.js": "/rute_project/static/js/3.e63dd962.chunk.js",
-    "static/js/3.e63dd962.chunk.js.map": "/rute_project/static/js/3.e63dd962.chunk.js.map",
+    "main.js": "/rute_project/static/js/main.4c34205e.chunk.js",
+    "main.js.map": "/rute_project/static/js/main.4c34205e.chunk.js.map",
+    "runtime-main.js": "/rute_project/static/js/runtime-main.100c5eef.js",
+    "runtime-main.js.map": "/rute_project/static/js/runtime-main.100c5eef.js.map",
+    "static/js/2.3ea7fa36.chunk.js": "/rute_project/static/js/2.3ea7fa36.chunk.js",
+    "static/js/2.3ea7fa36.chunk.js.map": "/rute_project/static/js/2.3ea7fa36.chunk.js.map",
+    "static/js/3.f6a4c0c4.chunk.js": "/rute_project/static/js/3.f6a4c0c4.chunk.js",
+    "static/js/3.f6a4c0c4.chunk.js.map": "/rute_project/static/js/3.f6a4c0c4.chunk.js.map",
     "index.html": "/rute_project/index.html",
     "static/css/main.6593edc8.chunk.css.map": "/rute_project/static/css/main.6593edc8.chunk.css.map",
-    "static/js/2.405c2fff.chunk.js.LICENSE.txt": "/rute_project/static/js/2.405c2fff.chunk.js.LICENSE.txt",
+    "static/js/2.3ea7fa36.chunk.js.LICENSE.txt": "/rute_project/static/js/2.3ea7fa36.chunk.js.LICENSE.txt",
     "static/media/gb.ecd5e69b.png": "/rute_project/static/media/gb.ecd5e69b.png",
     "static/media/main_video.61bba9ed.mp4": "/rute_project/static/media/main_video.61bba9ed.mp4",
     "static/media/opening.c88f6be5.mp4": "/rute_project/static/media/opening.c88f6be5.mp4",
+    "static/media/paypal_logo.8863bdc3.svg": "/rute_project/static/media/paypal_logo.8863bdc3.svg",
     "static/media/tr.b4bdd7cd.png": "/rute_project/static/media/tr.b4bdd7cd.png",
     "static/media/woman1.bdf8ceac.png": "/rute_project/static/media/woman1.bdf8ceac.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b1b3ae12.js",
-    "static/js/2.405c2fff.chunk.js",
+    "static/js/runtime-main.100c5eef.js",
+    "static/js/2.3ea7fa36.chunk.js",
     "static/css/main.6593edc8.chunk.css",
-    "static/js/main.0f9373bc.chunk.js"
+    "static/js/main.4c34205e.chunk.js"
   ]
 }
