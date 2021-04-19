@@ -21,8 +21,8 @@ pointer-events: ${props => props.isDisabled ? "none" : "visible"};
 transition: all 0.3s;
 user-select: none;
 :hover{
-    background-color: ${props => props.hoverBackgroundColor ?? "unset"};
-    color: ${props => props.hoverTextColor ?? "unset"};
+    background-color: ${props => props.hoverBackgroundColor ?? props.backgroundColor};
+    color: ${props => props.hoverTextColor ?? props.textColor};
 }
 `
 

@@ -15,7 +15,6 @@ flex-direction: column;
 align-items: center;
 padding-bottom: 15vh;
 `
-
 const TopImage = styled.img`
 width: 100%;
 min-height: 345px;

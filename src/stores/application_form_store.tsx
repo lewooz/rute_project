@@ -8,6 +8,8 @@ import { RootStore } from "./root_store/root_store";
 import UserPersonalInfoStatus from "../models/user/personal_info_status";
 import FileServices from "../services/file_services";
 import UserServices from "../services/user_services";
+import ContestModel from "../models/contest_model";
+import { uuid } from "uuidv4";
 
 const fileServices = new FileServices()
 const userServices = new UserServices()
@@ -26,6 +28,12 @@ export default class ApplicationFormStore {
     isOtherHairColorSelected: boolean = false
     isOtherEyeColorSelected: boolean = false
     formSubmitted: boolean = false
+    appliedContests: Array<ContestModel> = []
+    currentAvailableContests: Array<ContestModel> = [
+        new ContestModel(uuid(), "MISS GLOBE", 5, "Miss Globe açıklama.", "https://firebasestorage.googleapis.com/v0/b/beautyfashionfactory-a55d1.appspot.com/o/contest_logos%2Fmiss_globe_logo.png?alt=media&token=bcd03982-8ced-49e0-b447-d6574c53ed0c"),
+        new ContestModel(uuid(), "MISS UNIVERSITY", 10, "Miss University açıklama.", "https://firebasestorage.googleapis.com/v0/b/beautyfashionfactory-a55d1.appspot.com/o/contest_logos%2Fmiss_university.png?alt=media&token=7d7193b7-6615-4762-8442-6a535ef23a16"),
+        new ContestModel(uuid(), "MISS IKON", 15, "Miss Ikon açıklama.", "https://firebasestorage.googleapis.com/v0/b/beautyfashionfactory-a55d1.appspot.com/o/contest_logos%2Fmiss_university.png?alt=media&token=7d7193b7-6615-4762-8442-6a535ef23a16"),
+    ]
 
     constructor(rootStore?: RootStore) {
         this.rootStore = rootStore
@@ -45,7 +53,7 @@ export default class ApplicationFormStore {
     }
     editQuestionsModel(key: string, value: any) {
         if (key === "contests") {
-            var index = this.applyingUser.questionsInfo[key].indexOf(value)
+            var index = this.applyingUser.questionsInfo.contests.findIndex((contest) => contest.contestId === value.contestId)
             if (index === -1) {
                 this.applyingUser.questionsInfo[key].push(value)
             } else {
@@ -128,7 +136,7 @@ export default class ApplicationFormStore {
     setContestIds() {
         this.applyingUser.contestIds = []
         this.applyingUser.questionsInfo.contests.forEach(contest => {
-            var contestCode = contest.split(" ").pop()
+            var contestCode = contest.contestName.split(" ").pop()
             this.applyingUser.contestIds.push(`${contestCode[0]}-${this.applyingUser.id}`)
         }
         )
@@ -143,11 +151,24 @@ export default class ApplicationFormStore {
         this.setContestIds()
         try {
             await userServices.saveApplicationInDb(this.applyingUser)
+            this.appliedContests = this.applyingUser.questionsInfo.contests.slice()
             this.resetApplicationFormStore()
         } catch (e) {
             alert(e.message)
             this.setFormSubmitStatus(false)
         }
+    }
+
+    getTotalPrice() {
+        var total = 0
+        this.appliedContests.forEach(contest =>
+            total += contest.contestEntryPrice
+        )
+        return total
+    }
+
+    removeAppliedContest(contestId: string) {
+        this.appliedContests = this.appliedContests.filter(contest => contest.contestId !== contestId)
     }
 
     resetApplicationFormStore() {

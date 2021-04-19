@@ -3,6 +3,7 @@ import styled, { css } from "styled-components"
 import FieldStatus from "../../enums/field_status"
 import AppColors from "../../utils/color"
 import { IoMdAlert, IoMdCheckmarkCircle } from "react-icons/io";
+import media from "../../utils/custom_media";
 
 const MainDiv = styled.div<{ width?: string, flex?: string, isVisible: boolean }>`
 position: relative;
@@ -19,7 +20,7 @@ visibility:visible;
 const StyledInput = styled.input<{ textTransform: string }>`
 width: 100%;
 outline: 0;
-padding-left: 25px;
+padding-left: 10px;
 flex:1;
 background: transparent;
 text-transform: ${props => props.textTransform};
@@ -36,10 +37,17 @@ input[type="number"] {
 ::placeholder{
 color: rgba(33, 33, 33, 0.4);
 }
+${media.phone}{
+   font:${props => props.theme.body2};
+}
 `
 const InputTitle = styled.text`
 font:${props => props.theme.subtitle1};
 color:${AppColors.WHITE};
+${media.phone}{
+    font:${props => props.theme.subtitle2};
+    width: 100%;
+}
 `
 const InputContainer = styled.div<{ height: string, marginTop: string }>`
 display: flex;
@@ -67,6 +75,9 @@ const EndText = styled.div`
 font:${props => props.theme.subtitle1};
 color: ${AppColors.WHITE};
 padding-left: 10px;
+${media.phone}{
+    font:${props => props.theme.subtitle2};
+}
 `
 
 interface InputProps {
@@ -169,9 +180,13 @@ const CustomTextfield: FC<InputProps> = (props) => {
                         type={props.type ?? "text"}
                         textTransform={props.type === "email" ? "none" : "capitalize"}
                     />
-                    <IconContainer>
-                        {renderEndIcon()}
-                    </IconContainer>
+                    {
+                        props.endIcon ?
+                            <IconContainer>
+                                {renderEndIcon()}
+                            </IconContainer>
+                            : null
+                    }
                 </InputRow>
                 {
                     props.endText &&

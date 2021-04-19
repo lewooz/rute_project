@@ -7,6 +7,8 @@ import NeumorphicCheckbox from "../../components/neumorphic_checkbox"
 import SizedBox from "../../components/sizedbox"
 import { FaUserCircle } from "react-icons/fa";
 import FilePicker from "../../components/file_picker"
+import ContestModel from "../../../models/contest_model"
+import media from "../../../utils/custom_media"
 
 const FormRow = styled.div<{ marginTop?: string, alignItems?: string }>`
 width: 100%;
@@ -19,6 +21,9 @@ const TitleText = styled.text<{ marginTop?: string }>`
 font:${props => props.theme.subtitle1};
 color:${AppColors.WHITE};
 margin-top: ${props => props.marginTop ?? "60px"};
+${media.phone}{
+    font:${props => props.theme.subtitle2};
+}
 `
 const NoteText = styled.text`
 margin-top: 10px;
@@ -41,7 +46,6 @@ const QuestionsForm = observer(() => {
     }
 
     const buildFirstRow = () => {
-
         return (
             <>
                 <TitleText>
@@ -50,24 +54,16 @@ const QuestionsForm = observer(() => {
                 <FormRow
                     marginTop={"20px"}
                 >
-                    <NeumorphicCheckbox
-                        isSelected={userQuestionInfoModel.contests.includes("MISS IKON")}
-                        onChange={() => applicationFormStore.editQuestionsModel("contests", "MISS IKON")}
-                        backgroundColor={AppColors.LIGHT_PURPLE}
-                        text={"MISS IKON"}
-                    />
-                    <NeumorphicCheckbox
-                        isSelected={userQuestionInfoModel.contests.includes("MISS UNIVERSITY")}
-                        onChange={() => applicationFormStore.editQuestionsModel("contests", "MISS UNIVERSITY")}
-                        backgroundColor={AppColors.LIGHT_PURPLE}
-                        text={"MISS UNIVERSITY"}
-                    />
-                    <NeumorphicCheckbox
-                        isSelected={userQuestionInfoModel.contests.includes("MISS GLOBE")}
-                        onChange={() => applicationFormStore.editQuestionsModel("contests", "MISS GLOBE")}
-                        backgroundColor={AppColors.LIGHT_PURPLE}
-                        text={"MISS GLOBE"}
-                    />
+                    {
+                        applicationFormStore.currentAvailableContests.map((contestModel: ContestModel) =>
+                            <NeumorphicCheckbox
+                                isSelected={userQuestionInfoModel.contests.findIndex(contest => contest.contestId === contestModel.contestId) === -1 ? false : true}
+                                onChange={() => applicationFormStore.editQuestionsModel("contests", contestModel)}
+                                backgroundColor={AppColors.LIGHT_PURPLE}
+                                text={contestModel.contestName}
+                            />
+                        )
+                    }
                 </FormRow>
                 <NoteText>
                     Not: Birden fazla kategoride yarışmaya katılabilirsiniz.
@@ -83,7 +79,7 @@ const QuestionsForm = observer(() => {
                     marginTop={"30px"}
                 >
                     Daha önce bir yarışmaya katıldınız mı?
-            </TitleText>
+                </TitleText>
                 <FormRow
                     marginTop={"20px"}
                 >
@@ -101,7 +97,6 @@ const QuestionsForm = observer(() => {
                     />
                 </FormRow>
             </>
-
         )
     }
     const buildThirdRow = () => {
@@ -129,7 +124,6 @@ const QuestionsForm = observer(() => {
                     />
                 </FormRow>
             </>
-
         )
     }
     const buildFourthRow = () => {

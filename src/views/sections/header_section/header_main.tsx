@@ -5,11 +5,12 @@ import useOnScreen from "../../../hooks/use_on_screen"
 import { useStores } from "../../../hooks/use_stores"
 
 import AppColors from "../../../utils/color"
+import media from "../../../utils/custom_media"
 import HeaderLeft from "./header_left"
 import HeaderRight from "./header_right"
 import OpeningVideoContainer from "./opening_video_container"
 
-const MainDiv = styled.div<{ isDrawerOpen: boolean, onScreen: boolean }>`
+const MainDiv = styled.div<{ isMenuHidden: boolean }>`
 display: flex;
 height: 80px;
 position: absolute;
@@ -31,12 +32,12 @@ padding: 0 5.09vw;
 :hover .svgLogo{
     color: ${AppColors.GREY70};
 }
-${props => (props.isDrawerOpen || !props.onScreen) && css`
+${props => props.isMenuHidden && css`
 top:-80px;
 `}
-${props => (props.onScreen) && css`
-top:0;
-`}
+${media.phone}{
+    padding:0;
+}
 `
 
 const HeaderMain = observer(() => {
@@ -47,8 +48,7 @@ const HeaderMain = observer(() => {
     return (
         <MainDiv
             ref={headerRef}
-            isDrawerOpen={homeStore.isDrawerOpen}
-            onScreen={onScreen}
+            isMenuHidden={(homeStore.isDrawerOpen || homeStore.isSocialLinksOpen || !onScreen) ? true : false}
         >
             <OpeningVideoContainer />
             <HeaderLeft />
